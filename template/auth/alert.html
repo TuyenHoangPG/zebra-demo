@@ -1,0 +1,16 @@
+<!--
+  @param from route /auth/master
+ -->
+{% if errors != '' %}
+    {% for item in errors %}
+      <script>openRegisterModal()</script>
+      <div class="alert alert-danger">{{ item }}</div>
+    {% endfor %}
+{% endif %}
+
+{% if success != '' %}
+    {% for item in success %}
+      <script>openLoginModal()</script>
+      <div class="alert alert-success">{{ item }}</div>
+    {% endfor %}
+{% endif %}
