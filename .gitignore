@@ -155,3 +155,5 @@ coverage_html
 # !**/migrations/__init__.py
 
 /logs/*.log*
+
+/static/CACHE/*

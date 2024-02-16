@@ -27,7 +27,7 @@ DJANGO_ROOT = dirname(abspath(__file__))
 PROJECT_ROOT = dirname(DJANGO_ROOT)
 
 # collect static files here
-STATIC_ROOT = join(PROJECT_ROOT, "run", "static")
+STATIC_ROOT = join(PROJECT_ROOT, "static")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -194,7 +194,5 @@ LOGGING = {
     },
 }
 
-COMPRESS_ENABLED = True
 COMPRESS_PRECOMPILERS = (("text/x-scss", "django_libsass.SassCompiler"),)
-
 CRISPY_TEMPLATE_PACK = "bootstrap5"
