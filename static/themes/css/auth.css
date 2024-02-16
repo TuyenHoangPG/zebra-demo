@@ -201,6 +201,11 @@ hr {
   /*     padding: 11px 15px; */
 }
 
+.login .modal-header .close {
+  margin: 0;
+  padding: 0;
+}
+
 .login .division {
   float: none;
   margin: 0 auto 18px;

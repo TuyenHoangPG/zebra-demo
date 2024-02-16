@@ -1,6 +1,7 @@
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.db import models
 
+from common.const import UserRole
 from common.model import TimeStampMixin
 
 
@@ -25,17 +26,16 @@ class UserManager(BaseUserManager):
         return self._create_user(email, password, **extra_fields)
 
     def create_superuser(self, email=None, password=None, **extra_fields):
-        extra_fields.setdefault("is_admin", True)
+        extra_fields.setdefault("role", UserRole.ADMIN)
         return self._create_user(email, password, **extra_fields)
 
 
-class Users(AbstractBaseUser, TimeStampMixin):
+class User(AbstractBaseUser, TimeStampMixin):
     email = models.EmailField(max_length=255, unique=True)
     password = models.CharField(max_length=128)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    is_admin = models.BooleanField(default=False)
-    last_login = models.DateTimeField(blank=True, null=True)
+    role = models.CharField(choices=UserRole.choices, default=UserRole.USER)
 
     objects = UserManager()
 
@@ -51,9 +51,9 @@ class Users(AbstractBaseUser, TimeStampMixin):
 
     def is_exist(user_id):
         try:
-            user = Users.objects.get(pk=user_id)
+            user = User.objects.get(pk=user_id)
             return True
-        except Users.DoesNotExist:
+        except User.DoesNotExist:
             return False
 
     class Meta:

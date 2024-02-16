@@ -23,4 +23,5 @@ urlpatterns = [
     # re_path(r"^app/", include("apps.urls"), name="app"),
     #
     re_path(r"^auth/", include("apps.auth.urls"), name="auth"),
+    re_path(r"^task/", include("apps.tasks.urls"), name="task"),
 ]

@@ -45,6 +45,8 @@ STATICFILES_DIRS = [
     join(PROJECT_ROOT, "static"),
 ]
 
+STATICFILES_FINDERS = ["compressor.finders.CompressorFinder"]
+
 # look for templates here
 # This is an internal setting, used in the TEMPLATES directive
 PROJECT_TEMPLATES = [
@@ -62,8 +64,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    ## Third party
+    "compressor",
     ## Local apps
     "apps.users",
+    "apps.tasks",
 ]
 
 MIDDLEWARE = [
@@ -112,7 +117,7 @@ DATABASES = {
     }
 }
 
-AUTH_USER_MODEL = "users.Users"
+AUTH_USER_MODEL = "users.User"
 
 
 # Password validation
@@ -188,3 +193,8 @@ LOGGING = {
         },
     },
 }
+
+COMPRESS_ENABLED = True
+COMPRESS_PRECOMPILERS = (("text/x-scss", "django_libsass.SassCompiler"),)
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
