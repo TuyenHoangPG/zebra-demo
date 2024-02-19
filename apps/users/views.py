@@ -3,5 +3,5 @@ from django.views.generic import FormView, TemplateView
 
 
 # Create your views here.
-class SuccessView(TemplateView):
-    template_name = "list-task.html"
+class ListUserView(TemplateView):
+    template_name = "users/list-user.html"

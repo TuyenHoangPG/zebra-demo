@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="">
+  <div>
+    Toggle column: <a class="toggle-vis" data-column="0">Name</a> - <a class="toggle-vis" data-column="1">Position</a>
+    -
+    <a class="toggle-vis" data-column="2">Office</a> - <a class="toggle-vis" data-column="3">Age</a> - <a
+      class="toggle-vis" data-column="4">Start date</a> - <a class="toggle-vis" data-column="5">Salary</a>
+  </div>
+  <table id="user-table" class="display" style="width:100%">
+    <thead>
+      <tr>
+        <th>Login</th>
+        <th>Id</th>
+        
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <th>Login</th>
+        <th>Id</th>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+{% endblock %}

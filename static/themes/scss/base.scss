@@ -1,4 +1,13 @@
 body {
-  background-color: #333;
   font-size: 12px;
+}
+
+div.dt-container .dt-paging .dt-paging-button:hover {
+  background-color: white;
+  background: white;
+  border: 1px solid white;
+}
+
+div.dt-container .dt-paging .dt-paging-button:active {
+  box-shadow: none;
 }
